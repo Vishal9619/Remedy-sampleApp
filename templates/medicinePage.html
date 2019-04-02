@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Medicine page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.1.0.js"></script>
+    
+    <script type="text/javascript" src="static/js/script.js"></script>
+    <link rel="stylesheet" href="static/css/styles.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+      <a class="navbar-brand" href="#">{{name}}</a>
+      <ul class="nav navbar-nav ml-auto">
+        <button type="button" class="btn btn-success">Update</button>&nbsp&nbsp&nbsp&nbsp
+        <button type="button" class="btn btn-danger">Cancel</button>
+      </ul>
+    </nav>
+
+    <div ng-app="medicineApp" class="container-fluid" style="margin-top:80px">
+      <div ng-controller="CarouselCtrl" class="slides_control">
+        
+        <!-- getDrugData?id=7d3237d7-9e71-4481-af5a-92cb929709e3 -->
+        {%raw%}
+        <uib-carousel interval="myInterval" no-wrap="noWrapSlides">
+          <uib-slide ng-repeat="slide in slides" active="slide.active" index="slide.id">
+            <img class="corousel-img" ng-src="{{slide.image}}" style="margin:auto;">
+            <div class="carousel-caption">
+              <h4>Slide {{slide.id}}</h4>
+              <h4>{{id}}</h4>
+            </div>
+          </uib-slide>
+        </uib-carousel>
+        {%endraw%}
+      </div>
+
+      <div class="container-fluid" style="margin-top:300px">
+        <label>Pack size:{{id}}</label><br>
+        <label>Price:</label><br>
+        <label>Manufactured By:</label>
+      </div>
+    </div>
+
+  </body>
+</html>

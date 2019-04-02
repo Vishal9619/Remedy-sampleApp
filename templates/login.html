@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Login Form</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <link rel="stylesheet" href="static/css/styles.css">
+
+  <script type="text/javascript">
+    var app = angular.module('loginApp',[]);
+  </script>
+  <style>
+
+  span {
+    color:Red;
+  }
+
+  </style>
+</head>
+
+<body>
+  <div ng-app="loginApp" class="container mx-auto space-from-top">
+    <h2>Login form</h2>
+    <form action="/login" novalidate method="POST" name="loginForm">
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" ng-model="txtmail" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" required> <span ng-show="loginForm.email.$error.required"> Required! </span>
+        <span ng-show="loginForm.email.$dirty&&loginForm.email.$error.pattern">Please Enter Valid Email!</span>
+      </div>
+      <div class="form-group">
+        <label for="pwd">Password:</label>
+        <input type="password" class="form-control" id="pswd" placeholder="Enter password" name="pswd">
+      </div>
+      <button type="submit" class="btn btn-primary ">Submit</button>
+    </form>
+  </div>
+</body>
+
+</html>
